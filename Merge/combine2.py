@@ -27,7 +27,7 @@ net.setInputScale(1.0 / 127.5)
 net.setInputMean((127.5, 127.5, 127.5))
 net.setInputSwapRB(True)
 
-target_classes = ["bottle", "cell phone","scissors"]
+target_classes = ["bottle", "cell phone","scissors","eye glasses","keyboard","mouse"]
 
 def getObjects(img, thres, nms, draw=True, objects=[]):
     classIds, confs, bbox = net.detect(img, confThreshold=thres, nmsThreshold=nms)
@@ -408,7 +408,7 @@ class ShoppingCartApp:
             box_size=6,  # Adjusted box size for smaller QR code
             border=2,  # Smaller border
         )
-        qr.add_data(encrypted_cart_data)
+        qr.add_data("SM01: "+encrypted_cart_data)
         qr.make(fit=True)
 
         # Convert QR to an image
